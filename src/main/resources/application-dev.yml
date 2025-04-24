@@ -1,16 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/restaurant_dev
+    url: jdbc:mysql://localhost:3306/restaurant_dev?useSSL=false&allowPublicKeyRetrieval=true
     username: admin_dev
     password: admin_dev
     driver-class-name: com.mysql.cj.jdbc.Driver
-
-# springdoc:
-#   swagger-ui:
-#     path: /swagger-ui.html
-#     tags-sorter: alpha
-#     operations-sorter: alpha
-#   api-docs:
-#     path: /v3/api-docs
-#   default-consumes-media-type: application/json
-#   default-produces-media-type: application/json
