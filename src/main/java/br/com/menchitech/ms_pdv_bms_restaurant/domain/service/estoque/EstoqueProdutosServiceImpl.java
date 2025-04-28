@@ -1,8 +1,7 @@
-package br.com.menchitech.ms_pdv_bms_restaurant.domain.service;
+package br.com.menchitech.ms_pdv_bms_restaurant.domain.service.estoque;
 
 import br.com.menchitech.ms_pdv_bms_restaurant.persistence.repository.estoque.EstoqueProdutoCustomRepository;
 import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 
