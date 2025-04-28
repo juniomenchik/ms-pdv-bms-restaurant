@@ -1,4 +1,4 @@
-package br.com.menchitech.ms_pdv_bms_restaurant.persistence.repository;
+package br.com.menchitech.ms_pdv_bms_restaurant.persistence.repository.estoque;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

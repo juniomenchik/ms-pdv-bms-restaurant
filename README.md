@@ -29,3 +29,28 @@ grant all on restaurant_prod.* to 'admin_prod'@'%';
 create user 'admin_qa'@'%' identified by 'admin_qa';
 grant all on restaurant_qa.* to 'admin_qa'@'%';
 
+
+
+
+Requisitos 
+
+- buscar categoria por id.
+- buscar todas categorias de produto.
+- cadastrar nova categoria.
+- deletar categoria.
+
+- buscar todos os estoques.
+
+- buscar estoque por id.
+
+- cadastrar estoque e produto novo.
+  - deve ter uma tabela contendo o registro de insercao do novo produto e estoque.
+  - deve ter uma tabela do estoque.
+  - deve ter uma tabela do produto.
+  
+- buscar todas os registros de insercao de estoque.
+
+- adicionar nova remessa de produtos.
+
+- retirada de produtos do estoque.
+

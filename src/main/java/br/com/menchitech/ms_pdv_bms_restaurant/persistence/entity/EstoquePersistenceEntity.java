@@ -1,71 +1,42 @@
 package br.com.menchitech.ms_pdv_bms_restaurant.persistence.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.hibernate.annotations.UuidGenerator;
 
-@Entity(name = "tb_estoque")
+import java.util.UUID;
+
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "tb_estoque")
 public class EstoquePersistenceEntity {
-    
-    @Id
-    private Long                        id;
 
-    // @OneToOne
-    // private ProdutoPersistenceEntity    produto;
-    private Integer                     quantidadeUnitaria;
-    private Double                      precoTotalVenda;
-    private Double                      precoTotalCusto;
+     @Id
+     @GeneratedValue
+     @UuidGenerator
+     @Column(name = "id", updatable = false, nullable = false)
+     private UUID id;
 
-    public EstoquePersistenceEntity(
-        // ProdutoPersistenceEntity produto,
-        Integer quantidadeUnitaria,
-        Double precoTotalVenda,
-        Double precoTotalCusto) {
+     private String                      nomeEstoque;
 
-        // this.produto = produto;
-        this.quantidadeUnitaria = quantidadeUnitaria;
-        this.precoTotalVenda = precoTotalVenda;
-        this.precoTotalCusto = precoTotalCusto;
-    }
+     @OneToOne(fetch = FetchType.LAZY)
+     @JoinColumn(name = "produto_id", nullable = false)
+     private ProdutoPersistenceEntity produto;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    // public ProdutoPersistenceEntity getProduto() {
-    //     return produto;
-    // }
-
-    // public void setProduto(ProdutoPersistenceEntity produto) {
-    //     this.produto = produto;
-    // }
-
-    public Integer getQuantidadeUnitaria() {
-        return quantidadeUnitaria;
-    }
-
-    public void setQuantidadeUnitaria(Integer quantidadeUnitaria) {
-        this.quantidadeUnitaria = quantidadeUnitaria;
-    }
-
-    public Double getPrecoTotalVenda() {
-        return precoTotalVenda;
-    }
-
-    public void setPrecoTotalVenda(Double precoTotalVenda) {
-        this.precoTotalVenda = precoTotalVenda;
-    }
-
-    public Double getPrecoTotalCusto() {
-        return precoTotalCusto;
-    }
-
-    public void setPrecoTotalCusto(Double precoTotalCusto) {
-        this.precoTotalCusto = precoTotalCusto;
-    }
-
+     private Integer                     quantidadeGuardada;
+     private Double                      precoSomaVenda;
+     private Double                      precoSomaCusto;
 }
