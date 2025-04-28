@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import org.hibernate.ObjectNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -13,6 +14,11 @@ import java.util.Optional;
 public class EstoqueProdutoCustomRepository implements BaseRepositoryInterface<EstoquePersistenceEntity> {
 
     private EstoquePersistenceRepository estoquePersistenceRepository;
+
+    @Override
+    public List<EstoquePersistenceEntity> list() {
+        return this.estoquePersistenceRepository.findAll();
+    }
 
     @Override
     public void save(EstoquePersistenceEntity object) {
