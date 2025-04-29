@@ -1,6 +1,6 @@
 package br.com.menchitech.ms_pdv_bms_restaurant.domain.vo;
 
-import br.com.menchitech.ms_pdv_bms_restaurant.domain.vo.estoque.EstoqueVO;
+import br.com.menchitech.ms_pdv_bms_restaurant.domain.vo.estoque.EstoqueResultVO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -29,6 +29,6 @@ public class ProdutoVO {
 
     private BigDecimal precoVenda;
 
-    private EstoqueVO estoque;
+    private EstoqueResultVO estoque;
 
 }

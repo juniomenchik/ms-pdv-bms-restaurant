@@ -20,23 +20,21 @@ public class GlobalExceptionHandler {
             .data(null)
             .message(exception.getMessage())
             .status("ERROR")
-            .stackTrace(Arrays.toString(exception.getStackTrace()))
             .build();
 
-        return ResponseEntity.ok(responseDTO);
+        return ResponseEntity.status(500).body(responseDTO);
     }
 
-    @ExceptionHandler(ObjectNotFoundException.class)
-    private ResponseEntity<ResponseDTO> handleObjectNotFoundException(ObjectNotFoundException exception) {
+    @ExceptionHandler(ObjectNotFoundCustomException.class)
+    private ResponseEntity<ResponseDTO> handleObjectNotFoundException(ObjectNotFoundCustomException exception) {
 
         ResponseDTO responseDTO = ResponseDTO.builder()
-            .data(exception.getEntityName())
-            .message(exception.getMessage())
-            .status("ERROR")
-            .stackTrace(Arrays.toString(exception.getStackTrace()))
+            .data(exception.getObjData())
+            .message(exception.getObjMessage())
+            .status(exception.getObjStatus())
             .build();
 
-        return ResponseEntity.ok(responseDTO);
+        return ResponseEntity.status(404).body(responseDTO);
     }
 
 }
