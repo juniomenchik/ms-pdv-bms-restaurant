@@ -24,15 +24,14 @@ public class EstoqueProdutosServiceImpl implements EstoqueProdutosService {
     private ProdutoCustomRepository produtoCustomRepository;
 
     @Override
-    public List<EstoqueResultVO> listarEstoqueProdutos() {
-
+    public List<EstoqueResultVO> list() {
         var estoques = estoqueCustomRepository.list();
 
         return EstoqueDomainMapper.INSTANCE.toRESVOList(estoques);
     }
 
     @Override
-    public EstoqueResultVO buscarEstoquePorId(String id) {
+    public EstoqueResultVO findById(String id) {
 
         UUID objId = ValidationGlobalUtils.toUUID(id);
 
@@ -47,7 +46,7 @@ public class EstoqueProdutosServiceImpl implements EstoqueProdutosService {
     }
 
     @Override
-    public EstoqueResultVO cadastrarEstoque(EstoqueVO estoqueVO) {
+    public EstoqueResultVO create(EstoqueVO estoqueVO) {
 
         UUID prodId = ValidationGlobalUtils.toUUID(estoqueVO.getProdutoId());
 
@@ -62,7 +61,7 @@ public class EstoqueProdutosServiceImpl implements EstoqueProdutosService {
     }
 
     @Override
-    public void deletarEstoque(String id) {
+    public void delete(String id) {
         UUID objId;
         try {
             objId = UUID.fromString(id);

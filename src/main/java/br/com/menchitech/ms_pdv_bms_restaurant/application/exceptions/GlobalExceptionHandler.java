@@ -2,12 +2,9 @@ package br.com.menchitech.ms_pdv_bms_restaurant.application.exceptions;
 
 import br.com.menchitech.ms_pdv_bms_restaurant.api.dto.ResponseDTO;
 import lombok.RequiredArgsConstructor;
-import org.hibernate.ObjectNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-
-import java.util.Arrays;
 
 @ControllerAdvice
 @RequiredArgsConstructor

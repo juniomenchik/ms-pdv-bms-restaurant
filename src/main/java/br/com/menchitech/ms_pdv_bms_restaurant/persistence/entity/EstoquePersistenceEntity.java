@@ -14,6 +14,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.UuidGenerator;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 @Data
@@ -28,15 +29,15 @@ public class EstoquePersistenceEntity {
      @GeneratedValue
      @UuidGenerator
      @Column(name = "id", updatable = false, nullable = false)
-     private UUID id;
+     private UUID                            id;
 
-     private String                      nomeEstoque;
+     private String                          nomeEstoque;
 
      @OneToOne(fetch = FetchType.LAZY)
      @JoinColumn(name = "produto_id", nullable = false)
-     private ProdutoPersistenceEntity produto;
+     private ProdutoPersistenceEntity        produto;
 
-     private Integer                     quantidadeGuardada;
-     private Double                      precoSomaVenda;
-     private Double                      precoSomaCusto;
+     private Integer                         quantidadeGuardada;
+     private BigDecimal                      precoSomaVenda;
+     private BigDecimal                      precoSomaCusto;
 }

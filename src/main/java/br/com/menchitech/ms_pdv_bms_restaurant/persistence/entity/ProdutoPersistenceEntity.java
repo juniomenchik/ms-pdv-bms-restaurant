@@ -1,5 +1,6 @@
 package br.com.menchitech.ms_pdv_bms_restaurant.persistence.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -47,7 +48,7 @@ public class ProdutoPersistenceEntity {
 
     private BigDecimal precoVenda;
 
-    @OneToOne(mappedBy = "produto")
+    @OneToOne(mappedBy = "produto", cascade = CascadeType.ALL)
     private EstoquePersistenceEntity estoque;
 
 }

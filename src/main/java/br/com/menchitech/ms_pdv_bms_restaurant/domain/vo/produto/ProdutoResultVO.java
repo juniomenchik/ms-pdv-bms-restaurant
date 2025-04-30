@@ -1,0 +1,31 @@
+package br.com.menchitech.ms_pdv_bms_restaurant.domain.vo.produto;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.math.BigDecimal;
+import java.util.UUID;
+
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class ProdutoResultVO {
+
+    private String id;
+
+    private String codigoDeBarras;
+
+    private String nome;
+
+    private String categoria;
+
+    private String descricao;
+
+    private BigDecimal precoCusto;
+
+    private BigDecimal precoVenda;
+
+}

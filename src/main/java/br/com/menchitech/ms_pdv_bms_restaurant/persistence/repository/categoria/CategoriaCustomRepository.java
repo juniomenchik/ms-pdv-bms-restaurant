@@ -3,7 +3,6 @@ package br.com.menchitech.ms_pdv_bms_restaurant.persistence.repository.categoria
 import br.com.menchitech.ms_pdv_bms_restaurant.persistence.entity.CategoriaProdutoPersistenceEntity;
 import br.com.menchitech.ms_pdv_bms_restaurant.persistence.repository.BaseRepositoryInterface;
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,12 +22,12 @@ public class CategoriaCustomRepository implements BaseRepositoryInterface<Catego
 
     @Override
     public CategoriaProdutoPersistenceEntity save(CategoriaProdutoPersistenceEntity object) {
-        return this.categoriaPersistenceRepository.save(object);
+        return this.categoriaPersistenceRepository.saveAndFlush(object);
     }
 
     @Override
     public CategoriaProdutoPersistenceEntity update(CategoriaProdutoPersistenceEntity object) {
-        return this.categoriaPersistenceRepository.save(object);
+        return this.categoriaPersistenceRepository.saveAndFlush(object);
     }
 
     @Override
@@ -39,5 +38,9 @@ public class CategoriaCustomRepository implements BaseRepositoryInterface<Catego
     @Override
     public Optional<CategoriaProdutoPersistenceEntity> findById(UUID id) {
         return this.categoriaPersistenceRepository.findById(id);
+    }
+
+    public Optional<CategoriaProdutoPersistenceEntity> findByCategoriaName(String categoria) {
+        return this.categoriaPersistenceRepository.findByName(categoria);
     }
 }

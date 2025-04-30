@@ -1,5 +1,7 @@
 package br.com.menchitech.ms_pdv_bms_restaurant.persistence.repository.produto;
 
+import br.com.menchitech.ms_pdv_bms_restaurant.application.exceptions.ObjectNotFoundCustomException;
+import br.com.menchitech.ms_pdv_bms_restaurant.domain.vo.categoria.CategoriaProdutoResultVO;
 import br.com.menchitech.ms_pdv_bms_restaurant.persistence.entity.ProdutoPersistenceEntity;
 import br.com.menchitech.ms_pdv_bms_restaurant.persistence.repository.BaseRepositoryInterface;
 import lombok.AllArgsConstructor;
@@ -23,17 +25,23 @@ public class ProdutoCustomRepository implements BaseRepositoryInterface<ProdutoP
 
     @Override
     public ProdutoPersistenceEntity save(ProdutoPersistenceEntity object) {
-        return this.produtoPersistenceRepository.save(object);
+        return this.produtoPersistenceRepository.saveAndFlush(object);
     }
 
     @Override
     public ProdutoPersistenceEntity update(ProdutoPersistenceEntity object) {
-        return this.produtoPersistenceRepository.save(object);
+        return this.produtoPersistenceRepository.saveAndFlush(object);
     }
 
     @Override
     public void delete(UUID object) {
-        this.produtoPersistenceRepository.deleteById(object);
+
+        var objToBeDeleted = this.findById(object);
+
+        if (objToBeDeleted.isEmpty()) {
+            throw new ObjectNotFoundCustomException(String.valueOf(object), ProdutoPersistenceEntity.class.getName());
+        }
+        this.produtoPersistenceRepository.delete(objToBeDeleted.get());
     }
 
     @Override

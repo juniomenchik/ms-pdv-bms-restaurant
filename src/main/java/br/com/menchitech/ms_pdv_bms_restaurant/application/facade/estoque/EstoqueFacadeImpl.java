@@ -1,4 +1,4 @@
-package br.com.menchitech.ms_pdv_bms_restaurant.application.facade;
+package br.com.menchitech.ms_pdv_bms_restaurant.application.facade.estoque;
 
 import br.com.menchitech.ms_pdv_bms_restaurant.api.dto.ResponseDTO;
 import br.com.menchitech.ms_pdv_bms_restaurant.application.dto.estoque.EstoqueRequestDTO;
@@ -10,13 +10,23 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 public class EstoqueFacadeImpl implements EstoqueFacade {
+    @Override
+    public ResponseDTO create(EstoqueRequestDTO objetoDTO) {
+        //nao disponivel
+        return null;
+    }
+
+    @Override
+    public void deleteById(String id) {
+        //nao disponivel
+    }
 
     private EstoqueProdutosService estoqueProdutosService;
 
     @Override
-    public ResponseDTO listarEstoqueProdutos() {
+    public ResponseDTO list() {
 
-        var estoquesVo = this.estoqueProdutosService.listarEstoqueProdutos();
+        var estoquesVo = this.estoqueProdutosService.list();
 
         var estoquesDTO = EstoqueApplicationMapper.INSTANCE.toRESVOList(estoquesVo);
 
@@ -28,9 +38,9 @@ public class EstoqueFacadeImpl implements EstoqueFacade {
     }
 
     @Override
-    public ResponseDTO buscarEstoquePorId(String id) {
+    public ResponseDTO findById(String id) {
 
-        var estoqueVO = this.estoqueProdutosService.buscarEstoquePorId(id);
+        var estoqueVO = this.estoqueProdutosService.findById(id);
 
         var estoqueDTO = EstoqueApplicationMapper.INSTANCE.toRES(estoqueVO);
 
@@ -41,22 +51,4 @@ public class EstoqueFacadeImpl implements EstoqueFacade {
             .build();
     }
 
-    @Override
-    public ResponseDTO cadastrarEstoque(EstoqueRequestDTO estoqueRequestDTO) {
-
-        var estoqueVO = this.estoqueProdutosService.cadastrarEstoque(
-            EstoqueApplicationMapper.INSTANCE.toVO(estoqueRequestDTO)
-        );
-
-        return ResponseDTO.builder()
-            .data(EstoqueApplicationMapper.INSTANCE.toRES(estoqueVO))
-            .message("Estoque criado com sucesso.")
-            .status("SUCCESS")
-            .build();
-    }
-
-    @Override
-    public void deletarEstoque(String id) {
-        this.estoqueProdutosService.deletarEstoque(id);
-    }
 }

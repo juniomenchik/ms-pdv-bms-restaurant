@@ -1,9 +1,10 @@
-package br.com.menchitech.ms_pdv_bms_restaurant.domain.vo;
+package br.com.menchitech.ms_pdv_bms_restaurant.application.dto.categoria;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 import java.util.UUID;
 
@@ -11,9 +12,8 @@ import java.util.UUID;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CategoriaProdutoVO {
+public class CategoriaProdutoRequestDTO {
 
-    private UUID id;
-
+    @NonNull
     private String nome;
 }

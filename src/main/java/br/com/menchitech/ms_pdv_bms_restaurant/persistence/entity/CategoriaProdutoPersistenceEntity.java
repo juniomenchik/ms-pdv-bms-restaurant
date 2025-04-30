@@ -26,5 +26,6 @@ public class CategoriaProdutoPersistenceEntity {
     @Column(name = "id", updatable = false, nullable = false)
     private UUID id;
 
+    @Column(unique = true)
     private String nome;
 }

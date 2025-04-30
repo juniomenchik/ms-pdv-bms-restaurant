@@ -1,34 +1,30 @@
-package br.com.menchitech.ms_pdv_bms_restaurant.domain.vo;
+package br.com.menchitech.ms_pdv_bms_restaurant.application.dto.produto;
 
-import br.com.menchitech.ms_pdv_bms_restaurant.domain.vo.estoque.EstoqueResultVO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 import java.math.BigDecimal;
-import java.util.UUID;
 
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProdutoVO {
+public class ProdutoRequestDTO {
 
-    private UUID id;
-
+    @NonNull
     private String codigoDeBarras;
-
+    @NonNull
     private String nome;
-
-    private CategoriaProdutoVO categoria;
-
+    @NonNull
+    private String categoria;
+    @NonNull
     private String descricao;
-
+    @NonNull
     private BigDecimal precoCusto;
-
+    @NonNull
     private BigDecimal precoVenda;
-
-    private EstoqueResultVO estoque;
 
 }

@@ -23,13 +23,13 @@ public class EstoqueCustomRepository implements BaseRepositoryInterface<EstoqueP
     @Override
     public EstoquePersistenceEntity save(EstoquePersistenceEntity object) {
 
-        return this.estoquePersistenceRepository.save(object);
+        return this.estoquePersistenceRepository.saveAndFlush(object);
     }
 
     @Override
     public EstoquePersistenceEntity update(EstoquePersistenceEntity object) {
 
-        return this.estoquePersistenceRepository.save(object);
+        return this.estoquePersistenceRepository.saveAndFlush(object);
     }
 
     @Override

@@ -1,6 +1,6 @@
 package br.com.menchitech.ms_pdv_bms_restaurant.domain.vo.estoque;
 
-import br.com.menchitech.ms_pdv_bms_restaurant.domain.vo.ProdutoVO;
+import br.com.menchitech.ms_pdv_bms_restaurant.domain.vo.produto.ProdutoVO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
