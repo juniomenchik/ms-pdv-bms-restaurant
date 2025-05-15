@@ -14,7 +14,7 @@ public class GlobalExceptionHandler {
     private ResponseEntity<ResponseDTO> handleException(Exception exception) {
 
         ResponseDTO responseDTO = ResponseDTO.builder()
-            .data(null)
+            .data("ERRO NAO MAPEADO, VERIFIQUE O LOG")
             .message(exception.getMessage())
             .status("ERROR")
             .build();

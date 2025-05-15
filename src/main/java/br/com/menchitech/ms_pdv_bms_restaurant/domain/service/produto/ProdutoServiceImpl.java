@@ -7,7 +7,6 @@ import br.com.menchitech.ms_pdv_bms_restaurant.domain.mapper.ProdutoDomainMapper
 import br.com.menchitech.ms_pdv_bms_restaurant.domain.vo.produto.ProdutoResultVO;
 import br.com.menchitech.ms_pdv_bms_restaurant.domain.vo.produto.ProdutoVO;
 import br.com.menchitech.ms_pdv_bms_restaurant.persistence.entity.CategoriaProdutoPersistenceEntity;
-import br.com.menchitech.ms_pdv_bms_restaurant.persistence.entity.EstoquePersistenceEntity;
 import br.com.menchitech.ms_pdv_bms_restaurant.persistence.entity.ProdutoPersistenceEntity;
 import br.com.menchitech.ms_pdv_bms_restaurant.persistence.repository.categoria.CategoriaCustomRepository;
 import br.com.menchitech.ms_pdv_bms_restaurant.persistence.repository.estoque.EstoqueCustomRepository;
@@ -17,7 +16,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.UUID;
 
 @Service
 @AllArgsConstructor
