@@ -9,6 +9,7 @@ import br.com.menchitech.ms_pdv_bms_restaurant.domain.vo.categoria.CategoriaProd
 import br.com.menchitech.ms_pdv_bms_restaurant.domain.vo.estoque.EstoqueResultVO;
 import br.com.menchitech.ms_pdv_bms_restaurant.domain.vo.estoque.EstoqueVO;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 @Mapper
@@ -17,5 +18,9 @@ public interface CategoriaApplicationMapper extends MapperApplicationInterface<
     CategoriaProdutoVO, CategoriaProdutoResultVO> {
 
     CategoriaApplicationMapper INSTANCE = Mappers.getMapper(CategoriaApplicationMapper.class);
+
+    @Override
+    @Mapping(target = "id", ignore = true)
+    CategoriaProdutoVO toVO(CategoriaProdutoRequestDTO categoriaProdutoRequestDTO);
 
 }

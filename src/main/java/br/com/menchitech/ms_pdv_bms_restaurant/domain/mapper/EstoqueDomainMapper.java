@@ -16,6 +16,8 @@ public interface EstoqueDomainMapper extends MapperDomainInterface<EstoqueVO, Es
     EstoqueDomainMapper INSTANCE = Mappers.getMapper(EstoqueDomainMapper.class);
 
     @Mapping(target = "produto", source = "savedProduct")
+    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "quantidadeGuardada" , ignore = true)
     EstoquePersistenceEntity toEntity(EstoqueVO estoqueVO, ProdutoPersistenceEntity savedProduct);
 
     @Override

@@ -19,6 +19,8 @@ public interface ProdutoDomainMapper extends MapperDomainInterface<
 
     @Override
     @Mapping(target = "categoria", ignore = true)
+    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "estoque" , ignore = true)
     ProdutoPersistenceEntity toEntity(ProdutoVO produtoVO);
 
     @Override
