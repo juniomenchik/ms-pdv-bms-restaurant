@@ -1,6 +1,6 @@
 package br.com.menchitech.ms_pdv_bms_restaurant.configuration.utils.security;
 
-import br.com.menchitech.ms_pdv_bms_restaurant.persistence.entity.security.UserEntity;
+import br.com.menchitech.ms_pdv_bms_restaurant.persistence.entity.security.UserPersistenceEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,7 +18,7 @@ import java.util.List;
 @NoArgsConstructor
 public class UserPrincipal implements UserDetails {
 
-    private UserEntity user;
+    private UserPersistenceEntity user;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

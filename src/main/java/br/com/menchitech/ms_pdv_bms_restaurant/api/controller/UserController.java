@@ -18,17 +18,17 @@ public class UserController implements UserControllerOpenApi {
 
     @Override
     public ResponseDTO listarUsers() {
-        return null;
+        return userFacade.list();
     }
 
     @Override
     public ResponseDTO buscarUserPorId(@NonNull String id) {
-        return null;
+        return userFacade.findById(id);
     }
 
     @Override
     public ResponseDTO cadastrarUser(UserRequestDTO userRequestDTO) {
-        return null;
+        return userFacade.create(userRequestDTO);
     }
 
     @Override

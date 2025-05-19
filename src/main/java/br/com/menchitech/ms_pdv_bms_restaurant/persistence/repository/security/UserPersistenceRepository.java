@@ -1,13 +1,13 @@
 package br.com.menchitech.ms_pdv_bms_restaurant.persistence.repository.security;
 
-import br.com.menchitech.ms_pdv_bms_restaurant.persistence.entity.security.UserEntity;
+import br.com.menchitech.ms_pdv_bms_restaurant.persistence.entity.security.UserPersistenceEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
 import java.util.UUID;
 
-public interface UserPersistenceRepository extends JpaRepository<UserEntity, UUID> {
+public interface UserPersistenceRepository extends JpaRepository<UserPersistenceEntity, UUID> {
 
-    UserEntity findByUsername(String username);
-    UserEntity findByEmail(String email);
+    UserPersistenceEntity findByUsername(String username);
+    UserPersistenceEntity findByEmail(String email);
 }

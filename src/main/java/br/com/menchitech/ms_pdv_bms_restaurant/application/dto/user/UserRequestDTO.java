@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 @Data
 @Builder
@@ -11,6 +12,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UserRequestDTO {
 
-    private String msg;
+    @NonNull
+    private String username;
+    @NonNull
+    private String email;
+    @NonNull
+    private String password;
 
 }

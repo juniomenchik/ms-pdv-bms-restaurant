@@ -19,7 +19,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Entity
 @Table(name = "tb_users")
-public class UserEntity {
+public class UserPersistenceEntity {
 
     @Id
     @GeneratedValue

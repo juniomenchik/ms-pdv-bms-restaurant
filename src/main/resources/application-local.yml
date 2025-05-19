@@ -7,13 +7,18 @@ spring:
   
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: validate
     show-sql: true
     properties:
       hibernate:
         format_sql: true
         dialect: org.hibernate.dialect.MySQL8Dialect
 
-# Desative o Flyway se estiver usando (para evitar conflitos)
-flyway:
-  enabled: false
+  flyway:
+    enabled: true
+    validate-on-migrate: true
+    locations: classpath:db/migration,classpath:db/schema
+    baseline-on-migrate: true
+    sql-migration-prefix: V
+    sql-migration-separator: __
+    sql-migration-suffixes: .sql

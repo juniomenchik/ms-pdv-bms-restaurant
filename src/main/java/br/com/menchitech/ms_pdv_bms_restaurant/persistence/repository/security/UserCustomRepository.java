@@ -1,6 +1,6 @@
 package br.com.menchitech.ms_pdv_bms_restaurant.persistence.repository.security;
 
-import br.com.menchitech.ms_pdv_bms_restaurant.persistence.entity.security.UserEntity;
+import br.com.menchitech.ms_pdv_bms_restaurant.persistence.entity.security.UserPersistenceEntity;
 import br.com.menchitech.ms_pdv_bms_restaurant.persistence.repository.BaseRepositoryInterface;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -11,22 +11,22 @@ import java.util.UUID;
 
 @Service
 @AllArgsConstructor
-public class UserCustomRepository implements BaseRepositoryInterface<UserEntity, UUID> {
+public class UserCustomRepository implements BaseRepositoryInterface<UserPersistenceEntity, UUID> {
 
     private UserPersistenceRepository userPersistenceRepository;
 
     @Override
-    public List<UserEntity> list() {
-        return List.of();
+    public List<UserPersistenceEntity> list() {
+        return this.userPersistenceRepository.findAll();
     }
 
     @Override
-    public UserEntity save(UserEntity object) {
-        return null;
+    public UserPersistenceEntity save(UserPersistenceEntity object) {
+        return this.userPersistenceRepository.saveAndFlush(object);
     }
 
     @Override
-    public UserEntity update(UserEntity object) {
+    public UserPersistenceEntity update(UserPersistenceEntity object) {
         return null;
     }
 
@@ -36,7 +36,7 @@ public class UserCustomRepository implements BaseRepositoryInterface<UserEntity,
     }
 
     @Override
-    public Optional<UserEntity> findById(UUID id) {
-        return Optional.empty();
+    public Optional<UserPersistenceEntity> findById(UUID id) {
+        return this.userPersistenceRepository.findById(id);
     }
 }

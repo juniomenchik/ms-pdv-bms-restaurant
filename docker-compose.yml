@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  mysql-container_compose:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: postgres
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    networks:
+      - restaurant-network
+
+  ms-pdv-bms-restaurant_compose:
+    image: ms-pdv-bms-restaurant:0.0.1
+    container_name: ms-pdv-bms-restaurant
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql-container_compose
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-container_compose:3306/restaurant_local
+      SPRING_DATASOURCE_USERNAME: admin_local
+      SPRING_DATASOURCE_PASSWORD: admin_local
+    networks:
+      - restaurant-network
+
+
+volumes:
+  mysql_data:
+
+networks:
+  restaurant-network:
+    driver: bridge
+
+

@@ -1,6 +1,6 @@
 package br.com.menchitech.ms_pdv_bms_restaurant.configuration.utils.security;
 
-import br.com.menchitech.ms_pdv_bms_restaurant.persistence.entity.security.UserEntity;
+import br.com.menchitech.ms_pdv_bms_restaurant.persistence.entity.security.UserPersistenceEntity;
 import br.com.menchitech.ms_pdv_bms_restaurant.persistence.repository.security.UserPersistenceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,8 +17,8 @@ public class MyUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        UserEntity userByUsername   = userPersistenceRepository.findByUsername(username);
-        UserEntity userEmail        = userPersistenceRepository.findByEmail(username);
+        UserPersistenceEntity userByUsername   = userPersistenceRepository.findByUsername(username);
+        UserPersistenceEntity userEmail        = userPersistenceRepository.findByEmail(username);
 
         if (userByUsername != null){
             return UserPrincipal.builder()

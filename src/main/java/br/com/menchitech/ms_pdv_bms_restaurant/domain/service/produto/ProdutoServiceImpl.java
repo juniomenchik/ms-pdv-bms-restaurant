@@ -28,6 +28,7 @@ public class ProdutoServiceImpl implements ProdutoService {
     @Override
     public List<ProdutoResultVO> list() {
         var produtos = produtoCustomRepository.list();
+
         return ProdutoDomainMapper.INSTANCE.toRESVOList(produtos);
     }
 

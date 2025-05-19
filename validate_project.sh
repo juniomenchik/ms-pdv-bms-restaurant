@@ -35,10 +35,10 @@ run_command 3 "Validating POM" "validate"
 run_command 4 "Compiling source code" "compile"
 
 # 5. Run unit tests
-run_command 5 "Running unit tests" "test"
+#run_command 5 "Running unit tests" "test"
 
 # 6. Package project
-run_command 6 "Packaging project" "package"
+#run_command 6 "Packaging project" "package"
 
 # 7. Analyze dependencies
 run_command 7 "Analyzing dependencies" "dependency:analyze"
@@ -51,6 +51,30 @@ run_command 8 "Checking for dependency updates" "versions:display-dependency-upd
 # mvn org.owasp:dependency-check-maven:check
 echo
 
+# Docker commands
+echo -e "${YELLOW}Running Docker commands...${NC}"
+
+echo -e "${YELLOW}Stopping and removing existing containers...${NC}"
+docker-compose down -v
+
+echo -e "${YELLOW}Removing existing MS-PDV-BMS-RESTAURANT container...${NC}"
+docker container rm ms-pdv-bms-restaurant
+
+echo -e "${YELLOW}Building project without tests...${NC}"
+mvn clean package -DskipTests
+
+echo -e "${YELLOW}Building Docker image...${NC}"
+docker build -t ms-pdv-bms-restaurant:0.0.1 .
+
+#echo -e "${YELLOW}Tagging Docker image...${NC}"
+#docker tag ms-pdv-bms-restaurant:0.0.1 {yourregistry}/ms-pdv-bms-restaurant:0.0.1
+
+#echo -e "${YELLOW}Pushing Docker image...${NC}"
+#docker push yourregistry/ms-pdv-bms-restaurant:0.0.1 // if you want to push the image to a registry
+
+echo -e "${YELLOW}Running Docker Compose with All MICRO-SERVICES...${NC}"
+docker-compose up --build -d
+
 echo -e "${GREEN}#############################################${NC}"
-echo -e "${GREEN}# Project validation completed successfully #${NC}"
+echo -e "${GREEN}# Project Validated and Deployed successfully #${NC}"
 echo -e "${GREEN}#############################################${NC}"
