@@ -80,6 +80,7 @@ case "$acao" in
     kubectl apply -f k8s/mysql-pv-pvc.yaml
     kubectl apply -f k8s/mysql-deployment.yaml
     kubectl apply -f k8s/mysql-service.yaml
+    kubectl apply -f k8s/restaurant-pvc.yaml
     kubectl apply -f k8s/restaurant-deployment.yaml
     kubectl apply -f k8s/restaurant-service.yaml
     kubectl apply -f k8s/global-ingress.yaml
@@ -91,6 +92,7 @@ case "$acao" in
     kubectl apply -f k8s/mysql-pv-pvc.yaml
     kubectl apply -f k8s/mysql-deployment.yaml
     kubectl apply -f k8s/mysql-service.yaml
+    kubectl apply -f k8s/restaurant-pvc.yaml
     kubectl apply -f k8s/restaurant-deployment.yaml
     kubectl apply -f k8s/restaurant-service.yaml
     kubectl apply -f k8s/global-ingress.yaml
@@ -99,6 +101,7 @@ case "$acao" in
   down)
     echo "Deletando recursos Kubernetes..."
     kubectl delete -f k8s/global-ingress.yaml
+    kubectl delete -f k8s/restaurant-pvc.yaml
     kubectl delete -f k8s/restaurant-service.yaml
     kubectl delete -f k8s/restaurant-deployment.yaml
     kubectl delete -f k8s/mysql-service.yaml
@@ -110,6 +113,7 @@ case "$acao" in
   restart)
     echo -e "${YELLOW}Executando 'down' para deletar recursos...${NC}"
     kubectl delete -f k8s/global-ingress.yaml
+    kubectl delete -f k8s/restaurant-pvc.yaml
     kubectl delete -f k8s/restaurant-service.yaml
     kubectl delete -f k8s/restaurant-deployment.yaml
     kubectl delete -f k8s/mysql-service.yaml
@@ -177,6 +181,7 @@ case "$acao" in
     kubectl apply -f k8s/mysql-pv-pvc.yaml
     kubectl apply -f k8s/mysql-deployment.yaml
     kubectl apply -f k8s/mysql-service.yaml
+    kubectl apply -f k8s/restaurant-pvc.yaml
     kubectl apply -f k8s/restaurant-deployment.yaml
     kubectl apply -f k8s/restaurant-service.yaml
     kubectl apply -f k8s/global-ingress.yaml

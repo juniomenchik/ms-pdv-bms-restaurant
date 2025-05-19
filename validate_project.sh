@@ -70,7 +70,6 @@ docker tag ms-pdv-bms-restaurant:0.0.1 juniomenchik/ms-pdv-bms-restaurant:0.0.1
 #echo -e "${YELLOW}Pushing Docker image...${NC}"
 docker push juniomenchik/ms-pdv-bms-restaurant:0.0.1 // if you want to push the image to a registry
 
-
 echo -e "${GREEN}#############################################${NC}"
 echo -e "${GREEN}# Project Validated and Deployed successfully #${NC}"
 echo -e "${GREEN}#############################################${NC}"
