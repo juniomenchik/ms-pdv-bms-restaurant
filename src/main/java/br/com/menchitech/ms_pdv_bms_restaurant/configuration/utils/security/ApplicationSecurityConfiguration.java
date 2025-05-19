@@ -27,13 +27,17 @@ public class ApplicationSecurityConfiguration {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
-            .authorizeHttpRequests(auth -> auth.anyRequest().authenticated())
-            .csrf(AbstractHttpConfigurer::disable)
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/actuator/health").permitAll()
+                .anyRequest().authenticated())
+            .csrf(csrf -> csrf
+                .ignoringRequestMatchers("/actuator/health")) // Ignora CSRF para o health check
             .sessionManagement(session ->
                 session.sessionCreationPolicy(SessionCreationPolicy.ALWAYS))
             .httpBasic(Customizer.withDefaults())
             .build();
     }
+
 
     @Bean
     public UserDetailsService userDetailsService(DataSource dataSource) {

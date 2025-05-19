@@ -30,18 +30,6 @@ create user 'admin_qa'@'%' identified by 'admin_qa';
 grant all on restaurant_qa.* to 'admin_qa'@'%';
 
 
-
-reqDTO -> VO    -> Entity
-resDTO <- resVO <- Entity
-
-REQ,VO,RESVO,RES
-
-VO,ENTITY,RESVO
-
-
-
-
-
 Requisitos
 // CATEGORIA
 - buscar todas categorias.

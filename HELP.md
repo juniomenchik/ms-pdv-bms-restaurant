@@ -1,29 +1,119 @@
-# Read Me First
-The following was discovered as part of building this project:
+# MS-PDV-BMS-RESTAURANT
 
-* The original package name 'br.com.menchitech.ms-pdv-bms-restaurant' is invalid and this project uses 'br.com.menchitech.ms_pdv_bms_restaurant' instead.
+## Description
 
-# Getting Started
+This project is a restaurant management system that allows users to handle restaurant operations such as managing tables, orders, and payments. The system is designed to be user-friendly and efficient, streamlining the restaurant staff’s daily activities.
 
-### Reference Documentation
-For further reference, please consider the following sections:
+## Purpose
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/3.4.4/maven-plugin)
-* [Create an OCI image](https://docs.spring.io/spring-boot/3.4.4/maven-plugin/build-image.html)
-* [Spring Web](https://docs.spring.io/spring-boot/3.4.4/reference/web/servlet.html)
+This project exists to showcase every back-end soft skill I have ever implemented, following best practices and design patterns.
 
-### Guides
-The following guides illustrate how to use some features concretely:
+---
 
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/rest/)
+## Ideas to be Implemented
 
-### Maven Parent overrides
+## Code Coverage and Testing
 
-Due to Maven's design, elements are inherited from the parent POM to the project POM.
-While most of the inheritance is fine, it also inherits unwanted elements like `<license>` and `<developers>` from the parent.
-To prevent this, the project POM contains empty overrides for these elements.
-If you manually switch to a different parent and actually want the inheritance, you need to remove those overrides.
+* Unit tests
+* Integration tests
+* End-to-end tests
+
+* Code coverage reports
+* SonarQube integration for code quality analysis
+* External API testing
+* Selenium ?
+
+### Input Handling
+
+* File Uploads:
+
+    * PDF
+    * Videos
+    * Images
+    * CSV
+
+### Output Handling
+
+* File Downloads:
+
+    * PDF
+    * Videos
+    * Images
+    * CSV
+
+### Error Handling
+
+* Data overflow
+* Data validation via annotations
+* Global exception handling
+
+### Circuit Breaker
+
+* Investigate and implement a Circuit Breaker pattern to prevent system overload during failures in external services
+
+### Log Management
+
+* Log server integration (e.g., Splunk, Elasticsearch, or Grafana)
+* Microservices compatible with centralized logging
+* Use Spring Cloud Sleuth to trace calls between microservices
+
+### Batch Processing
+
+* Environment variable configuration
+* Scheduling routines at different times
+
+### Cache (Redis Integration)
+
+* Data caching to improve system performance
+* Redis-based cache configuration
+
+### Kafka
+
+* High-throughput user registration queue for bulk data processing
+
+---
+
+## Core Features
+
+### User Authentication & Authorization (Spring Security)
+
+* User registration
+* User login
+* User roles (admin, staff)
+
+### Table Management
+
+* Database: MySQL
+
+### Entity Relationship Management
+
+* Framework: Spring Data JPA
+
+---
+
+## Tech Stack
+
+* **Java 17+**
+* **Spring Boot**
+* **Spring Security**
+* **Spring Data JPA**
+* **Spring Web**
+* **MySQL**
+* **Redis**
+* **Kafka**
+* **Log Management**: Sleuth + Splunk/Elasticsearch
+* **Batch Processing**: Spring Batch
+* **File Handling**: Multipart support for uploads/downloads
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+* JDK 17+
+* Maven or Gradle
+* Docker (optional, for DB/Redis/Kafka)
+
+### Setup
 

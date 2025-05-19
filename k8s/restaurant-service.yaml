@@ -1,0 +1,12 @@
+# k8s/restaurant-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: ms-pdv-bms-restaurant
+spec:
+  selector:
+    app: ms-pdv-bms-restaurant
+  ports:
+    - port: 8080
+      targetPort: 8080
+  type: ClusterIP

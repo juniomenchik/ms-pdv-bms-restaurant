@@ -88,7 +88,6 @@
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.flywaydb/flyway-core -->
 		<dependency>
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>
@@ -99,6 +98,11 @@
 			<artifactId>flyway-mysql</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+			<version>3.4.4</version>
+		</dependency>
 	</dependencies>
 
 	<build>

@@ -54,8 +54,6 @@ echo
 # Docker commands
 echo -e "${YELLOW}Running Docker commands...${NC}"
 
-echo -e "${YELLOW}Stopping and removing existing containers...${NC}"
-docker-compose down -v
 
 echo -e "${YELLOW}Removing existing MS-PDV-BMS-RESTAURANT container...${NC}"
 docker container rm ms-pdv-bms-restaurant
@@ -67,13 +65,11 @@ echo -e "${YELLOW}Building Docker image...${NC}"
 docker build -t ms-pdv-bms-restaurant:0.0.1 .
 
 #echo -e "${YELLOW}Tagging Docker image...${NC}"
-#docker tag ms-pdv-bms-restaurant:0.0.1 {yourregistry}/ms-pdv-bms-restaurant:0.0.1
+docker tag ms-pdv-bms-restaurant:0.0.1 juniomenchik/ms-pdv-bms-restaurant:0.0.1
 
 #echo -e "${YELLOW}Pushing Docker image...${NC}"
-#docker push yourregistry/ms-pdv-bms-restaurant:0.0.1 // if you want to push the image to a registry
+docker push juniomenchik/ms-pdv-bms-restaurant:0.0.1 // if you want to push the image to a registry
 
-echo -e "${YELLOW}Running Docker Compose with All MICRO-SERVICES...${NC}"
-docker-compose up --build -d
 
 echo -e "${GREEN}#############################################${NC}"
 echo -e "${GREEN}# Project Validated and Deployed successfully #${NC}"

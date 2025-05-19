@@ -1,0 +1,52 @@
+# k8s/restaurant-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-pdv-bms-restaurant
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ms-pdv-bms-restaurant
+  template:
+    metadata:
+      labels:
+        app: ms-pdv-bms-restaurant
+    spec:
+      containers:
+        - name: ms-pdv-bms-restaurant
+          image: juniomenchik/ms-pdv-bms-restaurant:0.0.1
+          imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:mysql://mysql:3306/restaurant_local
+            - name: SPRING_DATASOURCE_USERNAME
+              value: admin_local
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: user_password
+          livenessProbe:
+            httpGet:
+              path: /actuator/health  # Caminho HTTP que será acessado
+              port: 8080              # Porta do container onde o caminho será acessado
+            initialDelaySeconds: 120   # Espera 60 segundos após o start antes de iniciar a checagem
+            periodSeconds: 10         # Realiza a checagem a cada 10 segundos
+            failureThreshold: 3       # Se falhar 3 vezes consecutivas, o container será reiniciado
+          readinessProbe:
+            httpGet:
+              path: /actuator/health  # Caminho usado para verificar se a app está pronta
+              port: 8080
+            initialDelaySeconds: 120   # Espera 40 segundos após o start antes de iniciar a checagem
+            periodSeconds: 10          # Verifica a cada 5 segundos
+            failureThreshold: 3       # Se falhar 3 vezes seguidas, considera que ainda não está pronto
